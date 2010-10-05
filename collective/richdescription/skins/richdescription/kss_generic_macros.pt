@@ -35,16 +35,16 @@
                    id="parent-fieldname-description"
                    tal:define="kss_class python:getKssClasses('description',
                                templateId='kss_generic_macros', macro='description-field-view');"
-                   tal:condition="context/getRichdescription"
+                   tal:condition="context/richdescription"
                    tal:attributes="class string:documentDescription$kss_class;">
                    <span metal:define-slot="inside"
-                         tal:replace="context/getRichdescription">Description</span>
+                         tal:replace="structure context/richdescription">Description</span>
                 </div>
             </tal:archetypes>
             <div class="documentDescription description"
-                 tal:content="context/getRichdescription"
+                 tal:content="structure context/richdescription"
                  tal:define="have_at exists:context/getField"
-                 tal:condition="python:context.getRichdescription() and not have_at">
+                 tal:condition="python:context.richdescription and not have_at">
                 Description
             </div>
         </metal:description_view>
