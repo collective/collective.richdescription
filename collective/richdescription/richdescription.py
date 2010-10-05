@@ -5,6 +5,9 @@
 __author__ = """Johannes Raggam <johannes@raggam.co.at>"""
 __docformat__ = 'plaintext'
 
+from zope.component import adapts
+from zope.interface import implements
+
 try:
     from Products.LinguaPlone import public  as atapi
 except ImportError:
@@ -15,6 +18,7 @@ from Products.Archetypes import PloneMessageFactory as _
 from Products.Archetypes.ExtensibleMetadata import ExtensibleMetadata
 from Products.Archetypes.interfaces import IExtensibleMetadata
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
+from archetypes.schemaextender.interfaces import ISchemaModifier
 from archetypes.schemaextender.field import ExtensionField
 
 from html2text import html2text
@@ -58,7 +62,6 @@ class RichDescriptionExtender(object):
     def getFields(self): return self.fields
 
     def getOrder(self, order):
-        import pdb;pdb.set_trace()
         schemata_default = order['default']
         schemata_default.remove('richdescription')
         idx = schemata_default.index('description')
