@@ -29,22 +29,23 @@
 
         <metal:description_view define-macro="generic_description_view"
                                 tal:define="kssClassesView context/@@kss_field_decorator_view;
-                                            getKssClasses nocall:kssClassesView/getKssClassesInlineEditable">
-            <tal:archetypes condition="exists:context/getField">
+                                            getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+                                            text context/richdescription|context/Description|nothing;
+                                            is_archetypes exists:context/getField">
+            <tal:archetypes condition="is_archetypes">
                 <div metal:define-macro="description-field-view"
                    id="parent-fieldname-description"
                    tal:define="kss_class python:getKssClasses('description',
                                templateId='kss_generic_macros', macro='description-field-view');"
-                   tal:condition="context/richdescription"
+                   tal:condition="text"
                    tal:attributes="class string:documentDescription$kss_class;">
                    <span metal:define-slot="inside"
-                         tal:replace="structure context/richdescription">Description</span>
+                         tal:replace="structure text">Description</span>
                 </div>
             </tal:archetypes>
             <div class="documentDescription description"
-                 tal:content="structure context/richdescription"
-                 tal:define="have_at exists:context/getField"
-                 tal:condition="python:context.richdescription and not have_at">
+                 tal:condition="python:text and not is_archetypes"
+                 tal:content="structure text">
                 Description
             </div>
         </metal:description_view>
