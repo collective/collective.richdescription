@@ -1,55 +1,15 @@
 import unittest
+import doctest
 
-#from zope.testing import doctestunit
-#from zope.component import testing
-from Testing import ZopeTestCase as ztc
-
-from Products.Five import fiveconfigure
-from Products.PloneTestCase import PloneTestCase as ptc
-from Products.PloneTestCase.layer import PloneSite
-ptc.setupPloneSite()
-
-import collective.richdescription
-
-
-class TestCase(ptc.PloneTestCase):
-
-    class layer(PloneSite):
-
-        @classmethod
-        def setUp(cls):
-            fiveconfigure.debug_mode = True
-            ztc.installPackage(collective.richdescription)
-            fiveconfigure.debug_mode = False
-
-        @classmethod
-        def tearDown(cls):
-            pass
-
+OPTIONFLAGS = doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS
 
 def test_suite():
-    return unittest.TestSuite([
-
-        # Unit tests
-        #doctestunit.DocFileSuite(
-        #    'README.txt', package='collective.richdescription',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
-
-        #doctestunit.DocTestSuite(
-        #    module='collective.richdescription.mymodule',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
-
-
-        # Integration tests that use PloneTestCase
-        #ztc.ZopeDocFileSuite(
-        #    'README.txt', package='collective.richdescription',
-        #    test_class=TestCase),
-
-        #ztc.FunctionalDocFileSuite(
-        #    'browser.txt', package='collective.richdescription',
-        #    test_class=TestCase),
-
-        ])
+    suite = unittest.TestSuite()
+    suite.addTests([
+        doctest.DocTestSuite('collective.richdescription.richdescription',
+                             optionflags=OPTIONFLAGS,),
+    ])
+    return suite
 
 if __name__ == '__main__':
     unittest.main(defaultTest='test_suite')
