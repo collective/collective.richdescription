@@ -21,7 +21,29 @@ from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from archetypes.schemaextender.interfaces import ISchemaModifier
 from archetypes.schemaextender.field import ExtensionField
 
-from html2text import html2text
+import re
+def strip_html(html):
+    """ Strips out html characters and leading or trailing whitespace.
+
+    Usage:
+
+    >>> html = '''<a href="some"
+    ... title="where"> else < or<br /> </a><!-- nothing -->'''
+    >>> strip_html(html)
+    'else < or'
+
+    Won't work for:
+
+    >>> html = '''<a href="some"
+    ... title="where"> else < or > that<br /> </a><!-- nothing -->'''
+    >>> strip_html(html)
+    'else  that'
+
+    """
+    re_html = re.compile("<[^<]*?/?>")
+    text = re_html.sub('', html)
+    return text.strip()
+
 
 class RichDescriptionField(ExtensionField, atapi.TextField):
 
@@ -34,7 +56,14 @@ class RichDescriptionField(ExtensionField, atapi.TextField):
         return value
 
     def set(self, instance, value, **kwargs):
-        instance.setDescription(html2text(value).strip())
+        try:
+            # Set Description only if richdescription attribute exists ...
+            instance.richdescription
+            cleaned = strip_html(value)
+            instance.setDescription(cleaned)
+        except AttributeError:
+            # ... but prefill richdescription if it didn't exist until now.
+            value = instance.Description()
         return super(RichDescriptionField,
                      self).set(instance, value, **kwargs)
 
