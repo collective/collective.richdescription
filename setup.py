@@ -26,6 +26,9 @@ setup(name='collective.richdescription',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
-          'html2text',
+          'zope.component',
+          'zope.interface',
+          'archetypes.schemaextender',
+          'Products.Archetypes',
       ],
       )
