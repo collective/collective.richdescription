@@ -31,4 +31,5 @@ setup(name='collective.richdescription',
           'archetypes.schemaextender',
           'Products.Archetypes',
       ],
+      extras_require={'test': ['interlude',]},
       )
