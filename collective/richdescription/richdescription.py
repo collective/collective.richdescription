@@ -55,17 +55,24 @@ class RichDescriptionField(ExtensionField, atapi.TextField):
         if not value:
             # Try to get Value from Description if it wasn't set until yet
             value = instance.Description()
+        print "getRaw, value: %s" % value
         return value
 
     def set(self, instance, value, **kwargs):
         try:
             # Set Description only if richdescription attribute exists ...
-            instance.richdescription
+            ## instance.richdescription
+            value_orig = instance.Description()
+            value_prev = instance.richdescription.getRaw()
+            if not value and not value_prev and value_orig:
+                # richdescription never set, but description -> prefill
+                value = value_orig
             cleaned = strip_html(value)
             instance.setDescription(cleaned)
         except AttributeError:
             # ... but prefill richdescription if it didn't exist until now.
             value = instance.Description()
+        print "set, value: %s" % value
         return super(RichDescriptionField,
                      self).set(instance, value, **kwargs)
 
