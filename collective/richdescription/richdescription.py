@@ -55,7 +55,6 @@ class RichDescriptionField(ExtensionField, atapi.TextField):
         if not value:
             # Try to get Value from Description if it wasn't set until yet
             value = instance.Description()
-        print "getRaw, value: %s" % value
         return value
 
     def set(self, instance, value, **kwargs):
@@ -72,7 +71,6 @@ class RichDescriptionField(ExtensionField, atapi.TextField):
         except AttributeError:
             # ... but prefill richdescription if it didn't exist until now.
             value = instance.Description()
-        print "set, value: %s" % value
         return super(RichDescriptionField,
                      self).set(instance, value, **kwargs)
 
