@@ -4,4 +4,7 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
+- Register the skins folder for any theme.
+  [thet]
+
 - Initial release
