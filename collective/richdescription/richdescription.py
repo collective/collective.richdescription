@@ -55,6 +55,11 @@ class RichDescriptionField(ExtensionField, atapi.TextField):
         if not value:
             # Try to get Value from Description if it wasn't set until yet
             value = instance.Description()
+            # Set it to the RichDescriptionField ...
+            super(RichDescriptionField, self).set(instance, value, **kwargs)
+            # ... and get it back to be able to return a BaseUnit object
+            value = super(RichDescriptionField,
+                          self).getRaw(instance, raw=raw, **kwargs)
         return value
 
     def set(self, instance, value, **kwargs):

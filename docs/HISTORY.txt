@@ -4,6 +4,11 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
+- When no description is set, return a BaseUnit as fallback. Fixes
+  AttributeError, where original_encoding was tried to accessed on a string
+  value.
+  [thet]
+
 - Register the skins folder for any theme.
   [thet]
 
