@@ -17,12 +17,20 @@ descriptions in folder_listing, then use something like this:
 </tal:block>
 
 
+Warning
+=======
+Although there are no big issues with this package, use it at your own risk!
+The description field wasn't meant to hold HTML data. People may tend to write
+long essays in the description field, which is not what you want, probably.
+Some use cases require this functionality though, so have fun.
+
+
 Migration?
 ==========
 There should be no need for a specific migration step. When no richdescription
 field is available for a content type, it falls back to the normal description
 field. When saving a content type, the richdescription field is set and the
-catalog's metadata richdescription column is filled
+catalog's metadata richdescription column is filled.
 
 
 Compatibility
