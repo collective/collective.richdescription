@@ -3,10 +3,11 @@ import doctest
 
 OPTIONFLAGS = doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS
 
+
 def test_suite():
     suite = unittest.TestSuite()
     suite.addTests([
-        doctest.DocTestSuite('collective.richdescription.richdescription',
+        doctest.DocTestSuite('collective.richdescription',
                              optionflags=OPTIONFLAGS,),
     ])
     return suite

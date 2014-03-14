@@ -1,11 +1,14 @@
 Changelog
 =========
 
-1.1 (unreleased)
-----------------
+2.0dev (unreleased)
+-------------------
 
-- Nothing changed yet.
+- Add Dexterity support.
+  [thet]
 
+- Refactoring.
+  [thet]
 
 1.0.1 (2014-06-13)
 ------------------
@@ -18,7 +21,6 @@ Changelog
 
 - Initial release
   [thet]
-
 
 1.0pre
 ------

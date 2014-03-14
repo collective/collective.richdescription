@@ -1,34 +1,47 @@
 from setuptools import setup, find_packages
 
-version = '1.1.dev0'
+version = '2.0dev'
 
-setup(name='collective.richdescription',
-      version=version,
-      description="Richtext/HTML Description field for Archetypes",
-      long_description=open("README.rst").read() + "\n" +
-                       open("CHANGES.rst").read(),
-      # Get more strings from
-      # http://pypi.python.org/pypi?%3Aaction=list_classifiers
-      classifiers=[
+long_description = "%s\n%s" % (
+    open("README.rst").read(),
+    open("CHANGES.rst").read()
+)
+
+setup(
+    name='collective.richdescription',
+    version=version,
+    description="Turns Plone 'Description' field into Richtext/HTML",
+    long_description=long_description,
+    classifiers=[
         "Framework :: Plone",
         "Programming Language :: Python",
+    ],
+    keywords='plone richtext',
+    author='Johannes Raggam',
+    author_email='raggam-nl@adm.at',
+    url='https://pypi.python.org/pypi/collective.richdescription',
+    license='GPL',
+    packages=find_packages(exclude=['ez_setup']),
+    namespace_packages=['collective'],
+    include_package_data=True,
+    zip_safe=False,
+    install_requires=[
+        'setuptools',
+        'zope.component',
+        'zope.interface',
+    ],
+    extras_require={
+        'archetypes': [
+            'archetypes.schemaextender',
+            'Products.Archetypes',
         ],
-      keywords='',
-      author='',
-      author_email='',
-      url='',
-      license='GPL',
-      packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['collective'],
-      include_package_data=True,
-      zip_safe=False,
-      install_requires=[
-          'setuptools',
-          # -*- Extra requirements: -*-
-          'zope.component',
-          'zope.interface',
-          'archetypes.schemaextender',
-          'Products.Archetypes',
-      ],
-      extras_require={'test': ['interlude',]},
-      )
+        'dexterity': [
+            'plone.app.dexterity',
+            'plone.app.textfield',
+            'plone.behavior',
+            'plone.autoform',
+            'plone.dexterity',
+            'plone.supermodel',
+        ],
+    },
+)

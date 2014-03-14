@@ -1,0 +1,18 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.richdescription">
+
+    <include package="plone.app.dexterity" />
+    <include package="plone.behavior" file="meta.zcml" />
+
+    <plone:behavior
+        title="Rich Description"
+        description="HTML description behavior."
+        provides=".behaviors.IRichDescription"
+        factory=".behaviors.RichDescription"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        marker=".behaviors.IRichDescription"
+        />
+
+</configure>

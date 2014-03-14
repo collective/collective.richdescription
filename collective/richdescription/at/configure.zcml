@@ -1,0 +1,11 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="collective.richdescription">
+
+  <include package="archetypes.schemaextender" />
+  <adapter factory=".extender.RichDescriptionExtender"
+           name="rich_description_extender" />
+  <adapter factory=".extender.RichDescriptionModifier"
+           name="rich_description_modifier" />
+
+</configure>
