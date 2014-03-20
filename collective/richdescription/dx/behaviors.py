@@ -1,6 +1,7 @@
 from collective.richdescription import strip_html
 from plone.app.dexterity import PloneMessageFactory as _PMF
 from plone.app.textfield import RichText as RichTextField
+from plone.app.textfield.value import RichTextValue
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.dexterity.interfaces import IDexterityContent
 from plone.supermodel import model
@@ -40,5 +41,7 @@ class RichDescription(object):
 
     @richdescription.setter
     def richdescription(self, value):
+        if not isinstance(RichTextValue, value):
+            value = RichTextValue(raw=value)
         self.context.richdescription = value
-        self.context.description = strip_html(value)
+        self.context.description = strip_html(value.raw)
