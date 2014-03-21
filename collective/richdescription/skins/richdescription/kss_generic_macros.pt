@@ -13,7 +13,7 @@
 
 <metal:description_view define-macro="generic_description_view">
   <div class="documentDescription description"
-      tal:define="text context/richdescription|context/Description|nothing;"
+      tal:define="text context/richdescription/output|context/richdescription|context/Description|nothing;"
       tal:condition="text"
       tal:content="structure text">Description</div>
 </metal:description_view>
