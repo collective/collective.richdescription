@@ -1,5 +1,6 @@
 from collective.richdescription import strip_html
 from plone.app.dexterity import PloneMessageFactory as _PMF
+from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.textfield import RichText as RichTextField
 from plone.app.textfield.value import RichTextValue
 from plone.autoform.interfaces import IFormFieldProvider
@@ -7,6 +8,9 @@ from plone.dexterity.interfaces import IDexterityContent
 from plone.supermodel import model
 from zope.component import adapts
 from zope.interface import alsoProvides, implements
+
+
+IBasic['description'].readonly = True  # Hide the description field
 
 
 class IRichDescription(model.Schema):
