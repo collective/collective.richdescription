@@ -16,12 +16,13 @@
       marker=".behaviors.IRichDescription"
       />
 
-  <configure zcml:condition="installed plone.app.contenttypes">
+  <!-- depends on p.a.c 1.2.x -->
+  <!--configure zcml:condition="installed plone.app.contenttypes">
   <configure zcml:condition="installed Products.ATContentTypes">
   <include
       zcml:condition="installed archetypes.schemaextender"
       package=".migration"/>
   </configure>
-  </configure>
+  </configure-->
 
 </configure>
