@@ -3,6 +3,7 @@ from plone.app.dexterity import PloneMessageFactory as _PMF
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.textfield import RichText as RichTextField
 from plone.app.textfield.value import RichTextValue
+from plone.autoform import directives as form
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.dexterity.interfaces import IDexterityContent
 from plone.supermodel import model
@@ -24,6 +25,9 @@ class IRichDescription(model.Schema):
         required=False,
         missing_value=u'',
     )
+    # Order after title from IDublinCore
+    form.order_after(richdescription='IDublinCore.title')
+
 alsoProvides(IRichDescription, IFormFieldProvider)
 
 
