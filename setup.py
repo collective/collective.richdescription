@@ -6,7 +6,7 @@ setup(name='collective.richdescription',
       version=version,
       description="Richtext/HTML Description field for Archetypes",
       long_description=open("README.rst").read() + "\n" +
-                       open("HISTORY.rst").read(),
+                       open("CHANGES.rst").read(),
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
