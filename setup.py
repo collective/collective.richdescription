@@ -1,13 +1,12 @@
 from setuptools import setup, find_packages
-import os
 
-version = '1.0'
+version = '1.0.1'
 
 setup(name='collective.richdescription',
       version=version,
       description="Richtext/HTML Description field for Archetypes",
       long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.rst")).read(),
+                       open("HISTORY.rst").read(),
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
