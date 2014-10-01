@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from collective.richdescription import strip_html
 from plone.app.dexterity import PloneMessageFactory as _PMF
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -7,13 +8,15 @@ from plone.autoform import directives as form
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.dexterity.interfaces import IDexterityContent
 from plone.supermodel import model
-from zope.component import adapts
-from zope.interface import alsoProvides, implements
+from zope.component import adapter
+from zope.interface import implementer
+from zope.interface import provider
 
 
 IBasic['description'].readonly = True  # Hide the description field
 
 
+@provider(IFormFieldProvider)
 class IRichDescription(model.Schema):
 
     richdescription = RichTextField(
@@ -28,12 +31,10 @@ class IRichDescription(model.Schema):
     # Order after title from IDublinCore
     form.order_after(richdescription='IDublinCore.title')
 
-alsoProvides(IRichDescription, IFormFieldProvider)
 
-
+@implementer(IRichDescription)
+@adapter(IDexterityContent)
 class RichDescription(object):
-    implements(IRichDescription)
-    adapts(IDexterityContent)
 
     def __init__(self, context):
         self.context = context

@@ -1,11 +1,12 @@
+# -*- coding: utf-8 -*-
 from Products.Archetypes import PloneMessageFactory as _
 from Products.Archetypes.interfaces import IExtensibleMetadata
 from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from archetypes.schemaextender.interfaces import ISchemaModifier
 from collective.richdescription import strip_html
-from zope.component import adapts
-from zope.interface import implements
+from zope.component import adapter
+from zope.interface import implementer
 
 try:
     from Products.LinguaPlone import public as atapi
@@ -32,7 +33,6 @@ class RichDescriptionField(ExtensionField, atapi.TextField):
     def set(self, instance, value, **kwargs):
         try:
             # Set Description only if richdescription attribute exists ...
-            ## instance.richdescription
             value_orig = instance.Description()
             value_prev = instance.richdescription.getRaw()
             if not value and not value_prev and value_orig:
@@ -47,9 +47,9 @@ class RichDescriptionField(ExtensionField, atapi.TextField):
                      self).set(instance, value, **kwargs)
 
 
+@implementer(IOrderableSchemaExtender)
+@adapter(IExtensibleMetadata)
 class RichDescriptionExtender(object):
-    implements(IOrderableSchemaExtender)
-    adapts(IExtensibleMetadata)
 
     fields = [
         RichDescriptionField(
@@ -83,9 +83,9 @@ class RichDescriptionExtender(object):
         return order
 
 
+@implementer(ISchemaModifier)
+@adapter(IExtensibleMetadata)
 class RichDescriptionModifier(object):
-    implements(ISchemaModifier)
-    adapts(IExtensibleMetadata)
 
     def __init__(self, context):
         self.context = context

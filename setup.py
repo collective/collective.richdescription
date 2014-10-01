@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
 
 version = '2.0dev'
@@ -16,11 +17,11 @@ setup(
         "Framework :: Plone",
         "Programming Language :: Python",
     ],
-    keywords='plone richtext',
+    keywords='plone richtext dublincore',
     author='Johannes Raggam',
     author_email='raggam-nl@adm.at',
     url='https://pypi.python.org/pypi/collective.richdescription',
-    license='GPL',
+    license='GPLv2',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     namespace_packages=['collective'],
@@ -45,4 +46,9 @@ setup(
             'plone.supermodel',
         ],
     },
+    entry_points="""
+    # -*- Entry points: -*-
+    [z3c.autoinclude.plugin]
+    target = plone
+    """,
 )
