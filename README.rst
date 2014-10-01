@@ -46,3 +46,19 @@ Author
 ======
 
 Johannes Raggam <johannes@raggam.co.at>
+
+
+Source Code and Contributions
+=============================
+
+If you want to help with the development (reporting, improvement, update, bug-fixing, ...) of ``collective.richdescription`` this is a great idea!
+
+Please file any issues or ideas for enhancement at the `issue tracker <https://github.com/collective/collective.richdescription`_.
+
+The code is located in the `github collective <https://github.com/collective/collective.richdescription`_.
+
+You can clone it or `get access to the github-collective <http://collective.github.com/>`_ and work directly on the project.
+
+Maintainer is Johannes Raggam and the BlueDynamics Alliance developer team. We appreciate any contribution and if a release is needed to be done on pypi,
+please just contact one of us `dev@bluedynamics dot com <mailto:dev@bluedynamics.com>`_
+
