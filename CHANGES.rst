@@ -1,8 +1,11 @@
 Changelog
 =========
 
-2.0dev (unreleased)
--------------------
+2.0 (2014-11-11)
+----------------
+
+- Cleaning up.
+  [jensens]
 
 - Add Dexterity support.
   [thet]
