@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from collective.richdescription import strip_html
 from plone.app.dexterity import PloneMessageFactory as _PMF
 from plone.app.dexterity.behaviors.metadata import IBasic

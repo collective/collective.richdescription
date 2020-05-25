@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from collective.richdescription.dx.behaviors import IRichDescription
 from plone.app.contenttypes.migration.migration import ICustomMigrator
 from plone.app.contenttypes.migration.utils import ATCT_LIST
