@@ -1,4 +1,6 @@
 <?xml version="1.0"?>
-<object name="portal_catalog" meta_type="Plone Catalog Tool">
-    <column value="richdescription"/>
+<object meta_type="Plone Catalog Tool"
+        name="portal_catalog"
+>
+  <column value="richdescription" />
 </object>

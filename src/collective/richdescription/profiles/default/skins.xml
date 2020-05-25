@@ -1,9 +1,12 @@
 <?xml version="1.0"?>
 <object name="portal_skins">
-  <object name="richdescription"
-    meta_type="Filesystem Directory View"
-    directory="collective.richdescription:skins/richdescription"/>
+  <object directory="collective.richdescription:skins/richdescription"
+          meta_type="Filesystem Directory View"
+          name="richdescription"
+  />
   <skin-path name="*">
-    <layer name="richdescription" insert-after="custom" />
+    <layer insert-after="custom"
+           name="richdescription"
+    />
   </skin-path>
 </object>
