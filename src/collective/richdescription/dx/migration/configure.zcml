@@ -1,3 +1,6 @@
 <configure xmlns="http://namespaces.zope.org/zope">
-  <adapter name="richdescriptionmigrator" factory=".RichDescriptionMigrator" />
+  <adapter
+      name="richdescriptionmigrator"
+      factory=".RichDescriptionMigrator"
+      />
 </configure>

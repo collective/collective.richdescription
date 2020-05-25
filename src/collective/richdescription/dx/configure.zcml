@@ -2,27 +2,32 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:zcml="http://namespaces.zope.org/zcml"
-    i18n_domain="collective.richdescription">
+    i18n_domain="collective.richdescription"
+    >
 
   <include package="plone.app.dexterity" />
-  <include package="plone.behavior" file="meta.zcml" />
+  <include
+      package="plone.behavior"
+      file="meta.zcml"
+      />
 
   <plone:behavior
       title="Rich Description"
       description="HTML description behavior."
       provides=".behaviors.IRichDescription"
-      factory=".behaviors.RichDescription"
       for="plone.dexterity.interfaces.IDexterityContent"
+      factory=".behaviors.RichDescription"
       marker=".behaviors.IRichDescription"
       />
 
   <!-- depends on p.a.c 1.2.x -->
   <configure zcml:condition="installed plone.app.contenttypes.migration.ICustomMigrator">
-      <configure zcml:condition="installed Products.ATContentTypes">
-          <include
-              zcml:condition="installed archetypes.schemaextender"
-              package=".migration"/>
-          </configure>
+    <configure zcml:condition="installed Products.ATContentTypes">
+      <include
+          package=".migration"
+          zcml:condition="installed archetypes.schemaextender"
+          />
+    </configure>
   </configure>
 
 </configure>

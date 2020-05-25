@@ -3,18 +3,25 @@
     xmlns:cmf="http://namespaces.zope.org/cmf"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:zcml="http://namespaces.zope.org/zcml"
-    i18n_domain="collective.richdescription">
+    i18n_domain="collective.richdescription"
+    >
 
-  <include zcml:condition="installed Products.ATContentTypes" package=".at" />
-  <include zcml:condition="installed plone.dexterity" package=".dx" />
+  <include
+      package=".at"
+      zcml:condition="installed Products.ATContentTypes"
+      />
+  <include
+      package=".dx"
+      zcml:condition="installed plone.dexterity"
+      />
 
   <cmf:registerDirectory name="richdescription" />
   <genericsetup:registerProfile
       name="default"
       title="collective.richdescription: default"
-      directory="profiles/default"
       description="collective.richdescription: Skin Installation."
       provides="Products.GenericSetup.interfaces.EXTENSION"
-  />
+      directory="profiles/default"
+      />
 
 </configure>
