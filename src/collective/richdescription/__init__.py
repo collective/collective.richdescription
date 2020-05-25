@@ -23,5 +23,5 @@ def strip_html(html):
     # regex pattern from:
     # http://love-python.blogspot.com/2008/07/strip-html-tags-using-python.html
     re_html = re.compile("<[^<]*?/?>")
-    text = re_html.sub('', html)
+    text = re_html.sub("", html)
     return text.strip()

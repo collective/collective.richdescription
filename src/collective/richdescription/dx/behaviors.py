@@ -13,40 +13,34 @@ from zope.interface import implementer
 from zope.interface import provider
 
 
-IBasic['description'].readonly = True  # Hide the description field
+IBasic["description"].readonly = True  # Hide the description field
 
 
 @provider(IFormFieldProvider)
 class IRichDescription(model.Schema):
 
     richdescription = RichTextField(
-        title=_PMF(u'label_description', default=u'Summary'),
+        title=_PMF(u"label_description", default=u"Summary"),
         description=_PMF(
-            u'help_description',
-            default=u'Used in item listings and search results.'
+            u"help_description", default=u"Used in item listings and search results."
         ),
         required=False,
-        missing_value=u'',
+        missing_value=u"",
     )
     # Order after title from IDublinCore
-    form.order_after(richdescription='IDublinCore.title')
+    form.order_after(richdescription="IDublinCore.title")
 
 
 @implementer(IRichDescription)
 @adapter(IDexterityContent)
 class RichDescription(object):
-
     def __init__(self, context):
         self.context = context
 
     @property
     def richdescription(self):
         ctx = self.context
-        return getattr(
-            ctx,
-            'richdescription',
-            getattr(ctx, 'description', u'')
-        )
+        return getattr(ctx, "richdescription", getattr(ctx, "description", u""))
 
     @richdescription.setter
     def richdescription(self, value):

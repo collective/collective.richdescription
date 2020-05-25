@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
-from Products.Archetypes import PloneMessageFactory as _
-from Products.Archetypes.interfaces import IExtensibleMetadata
 from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from archetypes.schemaextender.interfaces import ISchemaModifier
 from collective.richdescription import strip_html
+from Products.Archetypes import PloneMessageFactory as _
+from Products.Archetypes.interfaces import IExtensibleMetadata
 from zope.component import adapter
 from zope.interface import implementer
+
 
 try:
     from Products.LinguaPlone import public as atapi
@@ -16,18 +17,17 @@ except ImportError:
 
 
 class RichDescriptionField(ExtensionField, atapi.TextField):
-
     def getRaw(self, instance, raw=False, **kwargs):
-        value = super(RichDescriptionField,
-                      self).getRaw(instance, raw=raw, **kwargs)
+        value = super(RichDescriptionField, self).getRaw(instance, raw=raw, **kwargs)
         if not value:
             # Try to get Value from Description if it wasn't set until yet
             value = instance.Description()
             # Set it to the RichDescriptionField ...
             super(RichDescriptionField, self).set(instance, value, **kwargs)
             # ... and get it back to be able to return a BaseUnit object
-            value = super(RichDescriptionField,
-                          self).getRaw(instance, raw=raw, **kwargs)
+            value = super(RichDescriptionField, self).getRaw(
+                instance, raw=raw, **kwargs
+            )
         return value
 
     def set(self, instance, value, **kwargs):
@@ -43,8 +43,7 @@ class RichDescriptionField(ExtensionField, atapi.TextField):
         except AttributeError:
             # ... but prefill richdescription if it didn't exist until now.
             value = instance.Description()
-        return super(RichDescriptionField,
-                     self).set(instance, value, **kwargs)
+        return super(RichDescriptionField, self).set(instance, value, **kwargs)
 
 
 @implementer(IOrderableSchemaExtender)
@@ -53,17 +52,17 @@ class RichDescriptionExtender(object):
 
     fields = [
         RichDescriptionField(
-            'richdescription',
+            "richdescription",
             required=False,
             searchable=True,
-            default_content_type='text/html',
-            allowable_content_types=('text/html',),
+            default_content_type="text/html",
+            allowable_content_types=("text/html",),
             widget=atapi.RichWidget(
                 allow_file_upload=False,
-                label=_(u'label_description', default=u'Description'),
+                label=_(u"label_description", default=u"Description"),
                 description=_(
-                    u'help_description',
-                    default=u'Used in item listings and search results.'
+                    u"help_description",
+                    default=u"Used in item listings and search results.",
                 ),
             ),
         ),
@@ -76,20 +75,18 @@ class RichDescriptionExtender(object):
         return self.fields
 
     def getOrder(self, order):
-        schemata_default = order['default']
-        schemata_default.remove('richdescription')
-        idx = schemata_default.index('description')
-        schemata_default.insert(idx + 1, 'richdescription')
+        schemata_default = order["default"]
+        schemata_default.remove("richdescription")
+        idx = schemata_default.index("description")
+        schemata_default.insert(idx + 1, "richdescription")
         return order
 
 
 @implementer(ISchemaModifier)
 @adapter(IExtensibleMetadata)
 class RichDescriptionModifier(object):
-
     def __init__(self, context):
         self.context = context
 
     def fiddle(self, schema):
-        schema['description'].widget.visible = {'view': 'hidden',
-                                                'edit': 'hidden'}
+        schema["description"].widget.visible = {"view": "hidden", "edit": "hidden"}
