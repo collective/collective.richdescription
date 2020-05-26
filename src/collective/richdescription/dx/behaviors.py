@@ -1,5 +1,5 @@
 from collective.richdescription import strip_html
-from plone.app.dexterity import PloneMessageFactory as _PMF
+from plone.app.dexterity import _
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.textfield import RichText as RichTextField
 from plone.app.textfield.value import RichTextValue
@@ -19,8 +19,8 @@ IBasic["description"].readonly = True  # Hide the description field
 class IRichDescription(model.Schema):
 
     richdescription = RichTextField(
-        title=_PMF(u"label_description", default=u"Summary"),
-        description=_PMF(
+        title=_(u"label_description", default=u"Summary"),
+        description=_(
             u"help_description", default=u"Used in item listings and search results."
         ),
         required=False,
