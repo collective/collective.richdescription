@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
 from Products.CMFPlone.utils import safe_unicode
 from collective.richdescription.dx.behaviors import IRichDescription
 from plone.app.contenttypes.migration.migration import ICustomMigrator
-from plone.app.contenttypes.migration.utils import ATCT_LIST
 from plone.app.textfield.value import RichTextValue
 from zope.component import adapter
 from zope.interface import Interface
@@ -14,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 @implementer(ICustomMigrator)
 @adapter(Interface)
-class RichDescriptionMigrator(object):
+class RichDescriptionMigrator:
 
     def __init__(self, context):
         self.context = context
@@ -38,13 +36,3 @@ class RichDescriptionMigrator(object):
                 raw_text[:10] or raw_text
             )
         )
-
-
-def patch_ATCT_LIST():
-    for key, value in ATCT_LIST.items():
-        # Add 'richdescription' to all extended_fields fields
-        ext = value.get('extended_fields', [])
-        if 'richdescription' not in ext:
-            # ... because patch_ATCT_LIST might be called more than once
-            ext.append('richdescription')
-patch_ATCT_LIST()
