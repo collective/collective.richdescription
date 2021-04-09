@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '3.0'
+version = '3.0.0.dev0'
 
 long_description = "{}\n{}".format(
     open("README.rst").read(),
@@ -14,7 +14,14 @@ setup(
     long_description=long_description,
     classifiers=[
         "Framework :: Plone",
+        "Framework :: Plone :: 6.0",
+        "Framework :: Plone :: Core",
+        "Framework :: Zope :: 5",
+        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+        "Operating System :: OS Independent",
         "Programming Language :: Python",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
     ],
     keywords='plone richtext dublincore',
     author='Johannes Raggam',

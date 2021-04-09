@@ -1,5 +1,9 @@
-# -*- coding: utf-8 -*-
+from zope.i18nmessageid import MessageFactory
+
 import re
+
+
+_ = MessageFactory('plone')
 
 
 def strip_html(html):
@@ -25,3 +29,4 @@ def strip_html(html):
     re_html = re.compile("<[^<]*?/?>")
     text = re_html.sub('', html)
     return text.strip()
+

@@ -1,6 +1,13 @@
 Changelog
 =========
 
+3.0.0.dev0 (unreleased)
+----------------
+
+- Python 3 compatibility - remove Archetypes support.
+  [agitator]
+
+
 2.0 (2014-11-11)
 ----------------
 

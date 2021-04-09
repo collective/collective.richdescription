@@ -1,8 +1,8 @@
 Introduction
 ============
 
-Adds the new html-formatable textfield "richdescription" to Archetypes based
-content types and hides the description field from ExtensibleMetadata. When the
+Adds the new html-formatable textfield "richdescription" content types and hides 
+the description field from ExtensibleMetadata. When the
 field is saved, the contents are also stored in the "description" field, but
 without html-formating. A Metadata index is provided, so that "richdescription"
 can be used with catalog brains.
@@ -39,13 +39,14 @@ catalog's metadata richdescription column is filled.
 Compatibility
 =============
 
-Tested with Plone 4
+Tested with Plone 6
 
 
 Author
 ======
 
 Johannes Raggam <johannes@raggam.co.at>
+Peter Holzer <peter.holzer@agitator.com>
 
 
 Source Code and Contributions
