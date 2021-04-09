@@ -5,10 +5,8 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="collective.richdescription">
 
-  <include zcml:condition="installed Products.ATContentTypes" package=".at" />
   <include zcml:condition="installed plone.dexterity" package=".dx" />
 
-  <cmf:registerDirectory name="richdescription" />
   <genericsetup:registerProfile
       name="default"
       title="collective.richdescription: default"

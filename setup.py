@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
 
-version = '2.0'
+version = '3.0'
 
-long_description = "%s\n%s" % (
+long_description = "{}\n{}".format(
     open("README.rst").read(),
     open("CHANGES.rst").read()
 )
@@ -31,20 +30,14 @@ setup(
         'setuptools',
         'zope.component',
         'zope.interface',
+        'plone.app.dexterity',
+        'plone.app.textfield',
+        'plone.behavior',
+        'plone.autoform',
+        'plone.dexterity',
+        'plone.supermodel',
     ],
     extras_require={
-        'archetypes': [
-            'archetypes.schemaextender',
-            'Products.Archetypes',
-        ],
-        'dexterity': [
-            'plone.app.dexterity',
-            'plone.app.textfield',
-            'plone.behavior',
-            'plone.autoform',
-            'plone.dexterity',
-            'plone.supermodel',
-        ],
     },
     entry_points="""
     # -*- Entry points: -*-
