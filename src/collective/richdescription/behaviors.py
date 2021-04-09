@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
 from collective.richdescription import strip_html
-from plone.app.dexterity import PloneMessageFactory as _PMF
+from collective.richdescription import _
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.textfield import RichText as RichTextField
 from plone.app.textfield.value import RichTextValue
@@ -20,13 +19,13 @@ IBasic['description'].readonly = True  # Hide the description field
 class IRichDescription(model.Schema):
 
     richdescription = RichTextField(
-        title=_PMF(u'label_description', default=u'Summary'),
-        description=_PMF(
-            u'help_description',
-            default=u'Used in item listings and search results.'
+        title=_('label_description', default='Summary'),
+        description=_(
+            'help_description',
+            default='Used in item listings and search results.'
         ),
         required=False,
-        missing_value=u'',
+        missing_value='',
     )
     # Order after title from IDublinCore
     form.order_after(richdescription='IDublinCore.title')
@@ -34,7 +33,7 @@ class IRichDescription(model.Schema):
 
 @implementer(IRichDescription)
 @adapter(IDexterityContent)
-class RichDescription(object):
+class RichDescription:
 
     def __init__(self, context):
         self.context = context
@@ -45,7 +44,7 @@ class RichDescription(object):
         return getattr(
             ctx,
             'richdescription',
-            getattr(ctx, 'description', u'')
+            getattr(ctx, 'description', '')
         )
 
     @richdescription.setter

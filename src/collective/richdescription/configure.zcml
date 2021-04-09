@@ -2,16 +2,29 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:cmf="http://namespaces.zope.org/cmf"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="collective.richdescription">
 
-  <include zcml:condition="installed plone.dexterity" package=".dx" />
+  <include package="plone.app.dexterity" />
+  <include package="plone.behavior" file="meta.zcml" />
+
+  <plone:behavior
+      title="Rich Description"
+      name="collective.richdescription"
+      description="HTML description behavior."
+      provides=".behaviors.IRichDescription"
+      factory=".behaviors.RichDescription"
+      for="plone.dexterity.interfaces.IDexterityContent"
+      marker=".behaviors.IRichDescription"
+      />
+
 
   <genericsetup:registerProfile
       name="default"
       title="collective.richdescription: default"
       directory="profiles/default"
-      description="collective.richdescription: Skin Installation."
+      description="collective.richdescription: Installation."
       provides="Products.GenericSetup.interfaces.EXTENSION"
   />
 
