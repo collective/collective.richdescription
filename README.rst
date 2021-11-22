@@ -6,10 +6,10 @@ Adds the new html-formatable textfield ``richdescription`` content types can use
 There are two behaviors provided:
 
 ``collective.richdescription``
-    The single `richdescription` field.
+    The single ``richdescription`` field.
 
 ``collective.titleandrichdescription``
-    A drop-in replacement for `plone.basic`.
+    A drop-in replacement for ``plone.basic``. This is what you usually want: Disable plone Basic and enable this.
 
 - When the field is saved, the contents are also stored in the classic dublincore ``description`` field, but without html-formating.
 - A metadata index is provided, so that ``richdescription`` can be read directly from catalog brains.
@@ -20,7 +20,7 @@ There are two behaviors provided:
 There is **no** ``folder_listing`` or similar template yet.
 If you want to have HTML formated descriptions in ``folder_listing`` use something like this:
 
-.. code-block: XML
+.. code-block:: XML
 
     <tal:block
       tal:define="item_description item/richdescription|nothing;
