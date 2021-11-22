@@ -1,13 +1,23 @@
 Introduction
 ============
 
-Adds the new html-formatable textfield "richdescription" content types and hides 
-the description field from ExtensibleMetadata. When the
-field is saved, the contents are also stored in the "description" field, but
-without html-formating. A Metadata index is provided, so that "richdescription"
-can be used with catalog brains.
-There is no folder_listing template yet, but if you want to have HTML formated
-descriptions in folder_listing, then use something like this::
+Adds the new html-formatable textfield ``richdescription`` content types can use.
+
+There are two behaviors provided:
+
+``collective.richdescription``
+    The single `richdescription` field.
+
+``collective.titleandrichdescription``
+    A drop-in replacement for `plone.basic`.
+
+- When the field is saved, the contents are also stored in the classic dublincore ``description`` field, but without html-formating.
+- A metadata index is provided, so that ``richdescription`` can be read directly from catalog brains.
+
+There is **no** ``folder_listing`` template yet.
+If you want to have HTML formated descriptions in ``folder_listing`` use something like this
+
+.. code-block: XML
 
     <tal:block
       tal:define="item_description item/richdescription|nothing;
@@ -22,18 +32,17 @@ Warning
 =======
 
 Although there are no big issues with this package, use it at your own risk!
-The description field wasn't meant to hold HTML data. People may tend to write
-long essays in the description field, which is not what you want, probably.
+The description field wasn't meant to hold HTML data.
+People may tend to write long essays in the description field, which is not what you want, probably.
 Some use cases require this functionality though, so have fun.
 
 
 Migration?
 ==========
 
-There should be no need for a specific migration step. When no richdescription
-field is available for a content type, it falls back to the normal description
-field. When saving a content type, the richdescription field is set and the
-catalog's metadata richdescription column is filled.
+There should be no need for a specific migration step.
+When no richdescription field is available for a content type, it falls back to the normal description field.
+When saving a content type, the richdescription field is set and the catalog's metadata richdescription column is filled.
 
 
 Compatibility
@@ -47,6 +56,7 @@ Author
 
 Johannes Raggam <johannes@raggam.co.at>
 Peter Holzer <peter.holzer@agitator.com>
+Jens Klein <jk@kleinundaprtner.at>
 
 
 Source Code and Contributions
