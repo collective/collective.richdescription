@@ -11,7 +11,7 @@ long_description = "{}\n{}".format(
 setup(
     name="collective.richdescription",
     version=version,
-    description="Turns Plone 'Description' field into Richtext/HTML",
+    description="Turns the Plone 'Description' field into Richtext/HTML",
     long_description=long_description,
     classifiers=[
         "Framework :: Plone",
@@ -23,11 +23,12 @@ setup(
         "Programming Language :: Python",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
     ],
     keywords="plone richtext dublincore",
     author="Johannes Raggam",
     author_email="raggam-nl@adm.at",
-    url="https://pypi.python.org/pypi/collective.richdescription",
+    url="https://github.com/collective/collective.richdescription",
     license="GPLv2",
     packages=find_packages("src"),
     package_dir={"": "src"},

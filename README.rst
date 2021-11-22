@@ -1,7 +1,7 @@
 Introduction
 ============
 
-Adds the new html-formatable textfield ``richdescription`` content types can use.
+Adds the new HTML-formatable textfield ``richdescription`` content types can use.
 
 There are two behaviors provided:
 
