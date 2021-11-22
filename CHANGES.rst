@@ -2,7 +2,13 @@ Changelog
 =========
 
 3.0.0.dev0 (unreleased)
-----------------
+-----------------------
+
+- Add ``collective.titleandrichdescription`` as a drop in replacement for ``plone.basic``.
+  [jensens]
+
+- Add patchable ``PATTERN_OPTIONS`` global to ``collective.richdescription.behavior`` in order to be able to set reduced options here (default).
+  [jensens]
 
 - Python 3 compatibility - remove Archetypes support.
   [agitator]

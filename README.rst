@@ -13,9 +13,12 @@ There are two behaviors provided:
 
 - When the field is saved, the contents are also stored in the classic dublincore ``description`` field, but without html-formating.
 - A metadata index is provided, so that ``richdescription`` can be read directly from catalog brains.
+- A module global ``collective.richdescription.behavior.PATTERN_OPTIONS`` is used to configure the widget,
+  It comes with a reduced set of features and can be patched if more are needed.
+  There in no control panel yet (contributions are welcome).
 
-There is **no** ``folder_listing`` template yet.
-If you want to have HTML formated descriptions in ``folder_listing`` use something like this
+There is **no** ``folder_listing`` or similar template yet.
+If you want to have HTML formated descriptions in ``folder_listing`` use something like this:
 
 .. code-block: XML
 
@@ -64,7 +67,7 @@ Source Code and Contributions
 
 If you want to help with the development (reporting, improvement, update, bug-fixing, ...) of ``collective.richdescription`` this is a great idea!
 
-Please file any issues or ideas for enhancement at the `issue tracker <https://github.com/collective/collective.richdescription`_.
+Please file any issues or ideas for enhancement at the `issue tracker <https://github.com/collective/collective.richdescription/issues`_.
 
 The code is located in the `github collective <https://github.com/collective/collective.richdescription`_.
 
