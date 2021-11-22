@@ -1,14 +1,15 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages
+from setuptools import setup
 
-version = '3.0.0.dev0'
+
+version = "3.0.0.dev0"
 
 long_description = "{}\n{}".format(
-    open("README.rst").read(),
-    open("CHANGES.rst").read()
+    open("README.rst").read(), open("CHANGES.rst").read()
 )
 
 setup(
-    name='collective.richdescription',
+    name="collective.richdescription",
     version=version,
     description="Turns Plone 'Description' field into Richtext/HTML",
     long_description=long_description,
@@ -23,29 +24,28 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
     ],
-    keywords='plone richtext dublincore',
-    author='Johannes Raggam',
-    author_email='raggam-nl@adm.at',
-    url='https://pypi.python.org/pypi/collective.richdescription',
-    license='GPLv2',
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
-    namespace_packages=['collective'],
+    keywords="plone richtext dublincore",
+    author="Johannes Raggam",
+    author_email="raggam-nl@adm.at",
+    url="https://pypi.python.org/pypi/collective.richdescription",
+    license="GPLv2",
+    packages=find_packages("src"),
+    package_dir={"": "src"},
+    namespace_packages=["collective"],
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'setuptools',
-        'zope.component',
-        'zope.interface',
-        'plone.app.dexterity',
-        'plone.app.textfield',
-        'plone.behavior',
-        'plone.autoform',
-        'plone.dexterity',
-        'plone.supermodel',
+        "setuptools",
+        "zope.component",
+        "zope.interface",
+        "plone.app.dexterity",
+        "plone.app.textfield",
+        "plone.behavior",
+        "plone.autoform",
+        "plone.dexterity",
+        "plone.supermodel",
     ],
-    extras_require={
-    },
+    extras_require={},
     entry_points="""
     # -*- Entry points: -*-
     [z3c.autoinclude.plugin]

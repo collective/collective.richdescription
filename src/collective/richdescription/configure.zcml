@@ -13,11 +13,21 @@
   <plone:behavior
       title="Rich Description"
       name="collective.richdescription"
-      description="HTML description behavior."
+      description="Description with rich-text (HTML) input."
       provides=".behaviors.IRichDescription"
-      factory=".behaviors.RichDescription"
+      factory=".behaviors.RichDescriptionAdapter"
       for="plone.dexterity.interfaces.IDexterityContent"
-      marker=".behaviors.IRichDescription"
+      marker=".behaviors.IRichDescriptionMarker"
+      />
+
+  <plone:behavior
+      title="Basic metadata using a Rich Description"
+      name="collective.titleandrichdescription"
+      description="Title and Description with rich-text (HTML) input."
+      provides=".behaviors.ITitleAndRichDescription"
+      factory=".behaviors.TitleAndRichDescriptionAdapter"
+      for="plone.dexterity.interfaces.IDexterityContent"
+      marker=".behaviors.ITitleAndRichDescriptionMarker"
       />
 
   <browser:page
@@ -26,7 +36,6 @@
       template="description.pt"
       permission="zope.Public"
       />
-
 
   <genericsetup:registerProfile
       name="default"
