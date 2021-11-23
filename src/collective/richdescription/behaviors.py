@@ -64,10 +64,13 @@ class RichDescriptionAdapter:
 
     @richdescription.setter
     def richdescription(self, value):
-        if not isinstance(RichTextValue, value):
+        if isinstance(value, RichTextValue):
+            plain = value.raw
+        else:
+            plain = value
             value = RichTextValue(raw=value)
         self.context.richdescription = value
-        self.context.description = strip_html(value.raw)
+        self.context.description = strip_html(plain)
 
 
 class ITitleAndRichDescriptionMarker(Interface):
