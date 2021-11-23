@@ -4,7 +4,8 @@ Changelog
 3.0.0.dev0 (unreleased)
 -----------------------
 
-- Add ``collective.titleandrichdescription`` as a drop in replacement for ``plone.basic``.
+- Add ``collective.richdescription.title`` as a drop in replacement for ``plone.basic``.
+  Also add ``collective.richdescription.optionaltitle`` as a variant for file/image.
   [jensens]
 
 - Add patchable ``PATTERN_OPTIONS`` global to ``collective.richdescription.behavior`` in order to be able to set reduced options here (default).

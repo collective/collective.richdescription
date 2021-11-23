@@ -101,9 +101,6 @@ class ITitleAndRichDescription(model.Schema):
 @implementer(ITitleAndRichDescription)
 @adapter(IDexterityContent)
 class TitleAndRichDescriptionAdapter(RichDescriptionAdapter):
-    def __init__(self, context):
-        self.context = context
-
     @property
     def title(self):
         return self.context.title
@@ -111,3 +108,34 @@ class TitleAndRichDescriptionAdapter(RichDescriptionAdapter):
     @title.setter
     def title(self, value):
         self.context.title = value
+
+
+class IOptionalTitleAndRichDescriptionMarker(Interface):
+    """Content Marker"""
+
+@provider(IFormFieldProvider)
+class IOptionalTitleAndRichDescription(model.Schema):
+    title = schema.TextLine(title=_(u"label_title", default=u"Title"), required=False)
+    richdescription = RichTextField(
+        title=_("label_description", default="Summary"),
+        description=_(
+            "help_description", default="Used in item listings and search results."
+        ),
+        required=False,
+        missing_value="",
+    )
+    widget(
+        "richdescription",
+        RichTextFieldWidget,
+        pattern_options=PATTERN_OPTIONS,
+    )
+
+    directives.order_before(title="*")
+    directives.order_after(richdescription="IOptionalTitleAndRichDescription.title")
+
+
+@implementer(IOptionalTitleAndRichDescription)
+@adapter(IDexterityContent)
+class OptionalTitleAndRichDescriptionAdapter(TitleAndRichDescriptionAdapter):
+
+    pass

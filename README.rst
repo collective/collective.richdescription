@@ -8,8 +8,11 @@ There are two behaviors provided:
 ``collective.richdescription``
     The single ``richdescription`` field.
 
-``collective.titleandrichdescription``
+``collective.richdescription.basic``
     A drop-in replacement for ``plone.basic``. This is what you usually want: Disable plone Basic and enable this.
+
+``collective.richdescription.optionaltitle``
+    A special replacement for ``plone.basic``, but with an non-required title. To be used i.e. with file and image.
 
 - When the field is saved, the contents are also stored in the classic dublincore ``description`` field, but without html-formating.
 - A metadata index is provided, so that ``richdescription`` can be read directly from catalog brains.
