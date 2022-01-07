@@ -18,6 +18,7 @@ from zope.interface import provider
 
 PATTERN_OPTIONS = {
     "tiny": {
+        "height": 1,
         "menu": [],
         "menubar": [],
         "plugins": [],

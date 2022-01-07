@@ -55,4 +55,19 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
   />
 
+  <adapter
+      factory=".indexer.richdescription"
+      name="richdescription"
+  />
+
+  <adapter
+      factory=".indexer.titleandrichdescription"
+      name="richdescription"
+  />
+
+  <adapter
+      factory=".indexer.optionaltitleandrichdescription"
+      name="richdescription"
+  />
+
 </configure>
