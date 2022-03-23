@@ -14,6 +14,7 @@ setup(
     description="Turns the Plone 'Description' field into Richtext/HTML",
     long_description=long_description,
     classifiers=[
+        "Development Status :: 5 - Production/Stable",
         "Framework :: Plone",
         "Framework :: Plone :: 6.0",
         "Framework :: Plone :: Core",
