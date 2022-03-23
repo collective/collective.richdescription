@@ -1,8 +1,8 @@
 Changelog
 =========
 
-3.0.0.dev0 (unreleased)
------------------------
+3.0.0 (2022-03-23)
+------------------
 
 - Add ``collective.richdescription.title`` as a drop in replacement for ``plone.basic``.
   Also add ``collective.richdescription.optionaltitle`` as a variant for file/image.
