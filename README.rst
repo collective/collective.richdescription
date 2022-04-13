@@ -18,7 +18,7 @@ There are two behaviors provided:
 - A metadata index is provided, so that ``richdescription`` can be read directly from catalog brains.
 - A module global ``collective.richdescription.behavior.PATTERN_OPTIONS`` is used to configure the widget,
   It comes with a reduced set of features and can be patched if more are needed.
-  There in no control panel yet (contributions are welcome).
+  There is no control panel yet (contributions are welcome).
 
 There is **no** ``folder_listing`` or similar template yet.
 If you want to have HTML formated descriptions in ``folder_listing`` use something like this:
