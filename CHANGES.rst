@@ -4,7 +4,8 @@ Changelog
 3.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Update pattern options for tinymce 5.10.2 in Plone 6.
+  [agitator]
 
 
 3.0.0 (2022-03-23)
