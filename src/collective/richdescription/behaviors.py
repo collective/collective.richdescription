@@ -18,9 +18,9 @@ from zope.interface import provider
 
 PATTERN_OPTIONS = {
     "tiny": {
-        "height": 1,
-        "menu": [],
-        "menubar": [],
+        "theme": 'silver',
+        "height": 200,
+        "menubar": "",
         "plugins": [],
         "toolbar": "bold italic | removeformat | unlink plonelink",
     },
