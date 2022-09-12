@@ -1,5 +1,6 @@
 from . import _
 from .utils import strip_html
+from plone.app.dexterity import textindexer
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.textfield import RichText as RichTextField
 from plone.app.textfield.value import RichTextValue
@@ -95,6 +96,8 @@ class ITitleAndRichDescription(model.Schema):
         pattern_options=PATTERN_OPTIONS,
     )
 
+    textindexer.searchable("title")
+    textindexer.searchable("richdescription")
     directives.order_before(title="*")
     directives.order_after(richdescription="ITitleAndRichDescription.title")
 
@@ -131,6 +134,8 @@ class IOptionalTitleAndRichDescription(model.Schema):
         pattern_options=PATTERN_OPTIONS,
     )
 
+    textindexer.searchable("title")
+    textindexer.searchable("richdescription")
     directives.order_before(title="*")
     directives.order_after(richdescription="IOptionalTitleAndRichDescription.title")
 

@@ -4,6 +4,9 @@ Changelog
 3.0.1 (unreleased)
 ------------------
 
+- Add textindexer for title and description.
+  [agitator]
+
 - Update pattern options for tinymce 5.10.2 in Plone 6.
   [agitator]
 
