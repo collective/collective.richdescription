@@ -14,14 +14,14 @@ There are two behaviors provided:
 ``collective.richdescription.optionaltitle``
     A special replacement for ``plone.basic``, but with an non-required title. To be used i.e. with file and image.
 
-- When the field is saved, the contents are also stored in the classic dublincore ``description`` field, but without html-formating.
+- When the field is saved, the contents are also stored in the classic dublincore ``description`` field, but without html-formatting.
 - A metadata index is provided, so that ``richdescription`` can be read directly from catalog brains.
 - A module global ``collective.richdescription.behavior.PATTERN_OPTIONS`` is used to configure the widget,
   It comes with a reduced set of features and can be patched if more are needed.
   There is no control panel yet (contributions are welcome).
 
 There is **no** ``folder_listing`` or similar template yet.
-If you want to have HTML formated descriptions in ``folder_listing`` use something like this:
+If you want to have HTML formatted descriptions in ``folder_listing`` use something like this:
 
 .. code-block:: XML
 
