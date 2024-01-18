@@ -1,7 +1,6 @@
 from . import _
 from .utils import strip_html
 from plone.app.dexterity import textindexer
-from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.textfield import RichText as RichTextField
 from plone.app.textfield.value import RichTextValue
 from plone.app.z3cform.widget import RichTextFieldWidget
@@ -19,7 +18,7 @@ from zope.interface import provider
 
 PATTERN_OPTIONS = {
     "tiny": {
-        "theme": 'silver',
+        "theme": "silver",
         "height": 200,
         "menubar": "",
         "plugins": [],
@@ -34,7 +33,6 @@ class IRichDescriptionMarker(Interface):
 
 @provider(IFormFieldProvider)
 class IRichDescription(model.Schema):
-
     richdescription = RichTextField(
         title=_("label_description", default="Summary"),
         description=_(
@@ -81,7 +79,7 @@ class ITitleAndRichDescriptionMarker(Interface):
 
 @provider(IFormFieldProvider)
 class ITitleAndRichDescription(model.Schema):
-    title = schema.TextLine(title=_(u"label_title", default=u"Title"), required=True)
+    title = schema.TextLine(title=_("label_title", default="Title"), required=True)
     richdescription = RichTextField(
         title=_("label_description", default="Summary"),
         description=_(
@@ -117,9 +115,10 @@ class TitleAndRichDescriptionAdapter(RichDescriptionAdapter):
 class IOptionalTitleAndRichDescriptionMarker(Interface):
     """Content Marker"""
 
+
 @provider(IFormFieldProvider)
 class IOptionalTitleAndRichDescription(model.Schema):
-    title = schema.TextLine(title=_(u"label_title", default=u"Title"), required=False)
+    title = schema.TextLine(title=_("label_title", default="Title"), required=False)
     richdescription = RichTextField(
         title=_("label_description", default="Summary"),
         description=_(
@@ -143,5 +142,4 @@ class IOptionalTitleAndRichDescription(model.Schema):
 @implementer(IOptionalTitleAndRichDescription)
 @adapter(IDexterityContent)
 class OptionalTitleAndRichDescriptionAdapter(TitleAndRichDescriptionAdapter):
-
     pass
