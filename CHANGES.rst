@@ -4,6 +4,11 @@ Changelog
 3.0.2 (unreleased)
 ------------------
 
+- Fix the customized `@@description` view which wasn't applied.
+  The marker interface for IRichDescription behaviors was recently changed.
+  This fix shows the applie richdescription view where it is needed.
+  [thet]
+
 - Configure and cleanup with plone/meta.
   [thet]
 
