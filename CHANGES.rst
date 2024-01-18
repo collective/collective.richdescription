@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0.2 (unreleased)
+3.0.2 (2024-01-19)
 ------------------
 
 - Fix the customized `@@description` view which wasn't applied.
