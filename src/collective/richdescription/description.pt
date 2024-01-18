@@ -3,8 +3,7 @@
        description context/richdescription;
      "
      tal:condition="description"
+     tal:content="structure description/output"
 >
-  <div tal:replace="structure description/output">
-    Description
-  </div>
+  Description
 </div>

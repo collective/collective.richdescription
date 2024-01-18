@@ -45,8 +45,8 @@
       />
 
   <browser:page
+      for="collective.richdescription.behaviors.IRichDescriptionMarker"
       name="description"
-      for="collective.richdescription.behaviors.IRichDescription"
       template="description.pt"
       permission="zope.Public"
       />
