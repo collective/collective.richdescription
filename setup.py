@@ -1,7 +1,6 @@
 from setuptools import find_packages
 from setuptools import setup
 
-
 version = "3.0.3.dev0"
 
 long_description = "{}\n{}".format(
@@ -16,24 +15,26 @@ setup(
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Framework :: Plone",
-        "Framework :: Plone :: 6.0",
+        "Framework :: Plone :: 6.2",
         "Framework :: Plone :: Addon",
         "Framework :: Zope :: 5",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
+        "Programming Language :: Python :: 3.14",
     ],
     keywords="plone richtext dublincore",
     author="Johannes Raggam",
-    author_email="raggam-nl@adm.at",
+    author_email="thetetet@gmail.com",
     url="https://github.com/collective/collective.richdescription",
     license="GPLv2",
     packages=find_packages("src"),
     package_dir={"": "src"},
-    python_requires=">=3.9",
+    python_requires=">=3.10",
     namespace_packages=["collective"],
     include_package_data=True,
     zip_safe=False,
