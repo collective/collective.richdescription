@@ -4,7 +4,8 @@ Changelog
 3.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Register the `@@description` view for all behaviors.
+  [erral]
 
 
 3.0.2 (2024-01-19)

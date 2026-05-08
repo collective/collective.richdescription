@@ -44,12 +44,28 @@
       marker=".behaviors.IOptionalTitleAndRichDescriptionMarker"
       />
 
+
   <browser:page
       name="description"
       for="collective.richdescription.behaviors.IRichDescriptionMarker"
       template="description.pt"
       permission="zope.Public"
       />
+
+  <browser:page
+      name="description"
+      for="collective.richdescription.behaviors.ITitleAndRichDescriptionMarker"
+      template="description.pt"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      name="description"
+      for="collective.richdescription.behaviors.IOptionalTitleAndRichDescriptionMarker"
+      template="description.pt"
+      permission="zope.Public"
+      />
+
 
   <genericsetup:registerProfile
       name="default"
