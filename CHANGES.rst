@@ -4,7 +4,8 @@ Changelog
 4.0.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Move to use native namespaces.
+  [erral]
 
 
 3.0.3 (2026-05-29)
