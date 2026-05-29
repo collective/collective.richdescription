@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0.3 (unreleased)
+3.0.3 (2026-05-29)
 ------------------
 
 - Register the `@@description` view for all behaviors.
