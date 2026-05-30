@@ -1,7 +1,6 @@
-from setuptools import find_packages
 from setuptools import setup
 
-version = "3.0.4.dev0"
+version = "4.0.0.dev0"
 
 long_description = "{}\n{}".format(
     open("README.rst").read(), open("CHANGES.rst").read()
@@ -32,14 +31,10 @@ setup(
     author_email="thetetet@gmail.com",
     url="https://github.com/collective/collective.richdescription",
     license="GPLv2",
-    packages=find_packages("src"),
-    package_dir={"": "src"},
     python_requires=">=3.10",
-    namespace_packages=["collective"],
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        "setuptools",
         "plone.app.dexterity",
         "plone.app.textfield",
         "plone.app.z3cform",
