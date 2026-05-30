@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.0.0 (unreleased)
+4.0.0 (2026-05-30)
 ------------------
 
 - Move to use native namespaces.
